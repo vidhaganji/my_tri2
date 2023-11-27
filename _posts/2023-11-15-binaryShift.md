@@ -46,6 +46,7 @@ courses: { compsci: {week: 13} }
 </html>
 
 <script>
+// demo code
 let binaryNumber = parseInt("01011101", 2); // Initial binary number (in decimal form)
 
 function updateBinaryDisplay() {
@@ -61,7 +62,9 @@ function shiftRight() {
   binaryNumber >>= 1; // Shift the binary number to the right
   updateBinaryDisplay();
 }
+// end of demo code
 
+// game code
 // generate a random binary number with certain number of bits
 function generateBinaryNumber(bits) {
   return Math.floor(Math.random() * Math.pow(2, bits)).toString(2).padStart(bits, '0');
@@ -76,10 +79,11 @@ function shift(direction) {
   const correctAnswer = direction === 'left'
     ? binaryNumber.slice(positions) + '0'.repeat(positions)
     : '0'.repeat(positions) + binaryNumber.slice(0, -positions);
+  // input feedback
   if (playerAnswer === correctAnswer) {
     alert('Correct! :)');
   } else {
-    alert(`Incorrect >:( The correct answer is ${correctAnswer}. Please review binary shift above.`);
+    alert(`Incorrect >:( The correct answer is ${correctAnswer}. Please review binary shift explanation above.`);
   }
 }
 
