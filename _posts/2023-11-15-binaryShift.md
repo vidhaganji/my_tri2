@@ -2,13 +2,18 @@
 toc: true
 comments: true
 layout: post
-title: Binary Shift Game
+title: Binary Shift
 description: Learn binary shift and test your knowledge!
 type: hacks
 courses: { compsci: {week: 13} }
 ---
 
 <html lang="en">
+<h2>How to do Binary Shift</h2>
+<div>To perform a binary shift, add as many zeroes as the number of positions to the opposite end of the direction asked (if left, add zero on the right side and vice versa). Then, shift all the numbers down in the direction (left/right) and discard the numbers shifted out of the ends. See image below for an example.</div>
+
+<img src="{{site.baseurl}}/images/shift.png" width="640" length="480">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,13 +31,11 @@ courses: { compsci: {week: 13} }
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Binary Shift Game</title>
+
+  <h2>Binary Shift Game</h2>
 </head>
-<img src="{{site.baseurl}}/images/shift.png">
-<div>Binary shift visual with short explanation here</div>
-<div>In this game, you select which direction of shift you want to perform on a randomly generated binary number using the buttons below. Then, you will be asked to shift the binary number in the direction you chose by 1 position. Input your answer and submit to see if you got it right!</div>
 <body>
+  <div>In this game, you select which direction of shift you want to perform on a randomly generated binary number using the buttons below. Then, you will be asked to shift the binary number in the direction you chose by 1 position. Input your answer and submit to see if you got it right!</div>
   <div class="container">
     <div class="output" id="output"></div>
     <div class="button" id="left-shift" onclick="shift('left')">Shift Left</div>
