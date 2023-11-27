@@ -10,9 +10,13 @@ courses: { compsci: {week: 13} }
 
 <html lang="en">
 <h2>How to do Binary Shift</h2>
-<div>To perform a binary shift, add as many zeroes as the number of positions to the opposite end of the direction asked (if left, add zero on the right side and vice versa). Then, shift all the numbers down in the direction (left/right) and discard the numbers shifted out of the ends. See image below for an example.</div>
-
+<div>To perform a binary shift, add 0s to the opposite end of the direction asked (if left, add 0 on the right end and vice versa). Then, shift all the numbers down in the direction (left/right) and discard the numbers shifted out of the ends. See image below for an example.</div>
 <img src="{{site.baseurl}}/images/shift.png" width="640" length="480">
+
+<h2>How to Find Shifted Binary Numbers</h2>
+<div>The 0s and 1s coordinate with a power of two depending on its position. Starting from 1 on the right end, multiply by two each bit to the left. To find the binary number, add the powers of 2 that the 1s coordinate with. A left shift is used to multiply the binary number by 2, and a right shift is used to divide the binary number by 2.</div>
+<div>In the example below, the binary number has 8 bits meaning the highest power of 2 reaches 128, and the binary number is 16 + 4 + 1 = 21. When shifted to the left, the binary number becomes 42 since it is multiplied by 2. Check: 32 + 8 + 2 = 42. When shifted to the right, the binary number becomes 10 since it is divided by 2. Check: 8 + 2 = 10.</div>
+<img src="{{site.baseurl}}/images/binaryshift.png" width="640" length="480">
 
 <head>
   <meta charset="UTF-8">
