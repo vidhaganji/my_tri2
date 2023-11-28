@@ -92,10 +92,8 @@ function shift(direction) {
 <script src="{{site.baseurl}}/assets/js/vanta.clouds.min.js"></script>
 
 <script>
-  var vantaInstances = {
-  clouds: VANTA.CLOUDS,
-};
-vantaInstances({
+
+VANTA.CLOUDS ({
   el: "#animation",
   mouseControls: true,
   touchControls: true,
