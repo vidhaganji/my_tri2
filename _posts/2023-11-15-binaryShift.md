@@ -39,7 +39,9 @@ courses: { compsci: {week: 13} }
   <h2>Binary Shift Game</h2>
 </head>
 <body>
-  <div>In this game, you select which direction of shift you want to perform on a randomly generated binary number using the buttons below. Then, you will be asked to shift the binary number in the direction you chose by 1 position. Input your answer and submit to see if you got it right! After submitting the first question, you will be asked to convert the binary number to decimal.</div>
+  <div>In this game, you select which direction of shift you want to perform on a randomly generated binary number using the buttons below. After choosing left or right, you will be asked to shift the binary number in that direction by 1 position.</div>
+  
+  <div>After submitting the first question, you will be asked to convert another randomly generated binary number to decimal form.</div>
   <div class="container">
     <div class="output" id="output"></div>
     <div class="button" id="left-shift" onclick="shift('left')">Shift Left</div>
@@ -66,7 +68,6 @@ function shiftRight() {
   binaryNumber >>= 1; // Shift the binary number to the right
   updateBinaryDisplay();
 }
-// end of demo code
 
 // game code
 // generate a random binary number with certain number of bits
@@ -90,7 +91,6 @@ function shift(direction) {
   }
   powerOf2();
 }
-
 // binary to decimal using power of 2 rule
 function powerOf2(){
   const binaryNumber = generateBinaryNumber(8);
@@ -102,11 +102,9 @@ function powerOf2(){
     alert(`Incorrect >:( The correct answer is ${decimalValue}. Please review binary to decimal conversion.`);
   }
 }
-
 function binaryToDecimal(binary) {
   return parseInt(binary, 2);
 }
-
 </script>
 
 <script src="{{site.baseurl}}/assets/js/three.r134.min.js"></script>
