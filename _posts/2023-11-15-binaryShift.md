@@ -52,19 +52,20 @@ courses: { compsci: {week: 13} }
 
 <script>
 // demo code
-let binaryNumber = parseInt("01011101", 2); // Initial binary number (in decimal form)
+let binaryNumber = parseInt("01011101", 2);
 
 function updateBinaryDisplay() {
   document.getElementById("binaryNumber").textContent = binaryNumber.toString(2).padStart(8, '0');
 }
 
 function shiftLeft() {
-  binaryNumber <<= 1; // Shift the binary number to the left
+  binaryNumber <<= 1;
+  binaryNumber &= 0b11111111; // Apply a bitmask to keep only the last 8 bits
   updateBinaryDisplay();
 }
 
 function shiftRight() {
-  binaryNumber >>= 1; // Shift the binary number to the right
+  binaryNumber >>= 1;
   updateBinaryDisplay();
 }
 
