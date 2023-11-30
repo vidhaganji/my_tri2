@@ -42,12 +42,11 @@ courses: { compsci: {week: 13} }
   <div>In this game, you select which direction of shift you want to perform on a randomly generated binary number using the buttons below. After choosing left or right, you will be asked to shift the binary number in that direction by 1 position.</div>
   
   <div>After submitting the first question, you will be asked to convert another randomly generated binary number to decimal form.</div>
-  <div class="container">
+  <div class="container" id="animation">
     <div class="output" id="output"></div>
     <div class="button" id="left-shift" onclick="shift('left')">Shift Left</div>
     <div class="button" id="right-shift" onclick="shift('right')">Shift Right</div>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
 
@@ -111,14 +110,13 @@ function binaryToDecimal(binary) {
 <script src="{{site.baseurl}}/assets/js/vanta.clouds.min.js"></script>
 
 <script>
+  
 
 VANTA.CLOUDS ({
   el: "#animation",
   mouseControls: true,
   touchControls: true,
   gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
   skyColor: 0xf9d1d1,
   cloudColor: 0xbba2a8,
   cloudShadowColor: 0x905167,
