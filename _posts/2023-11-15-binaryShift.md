@@ -13,8 +13,8 @@ courses: { compsci: {week: 13} }
 <div>To perform a binary shift, add 0s to the opposite end of the direction asked (if left, add 0 on the right end and vice versa). Then, shift all the numbers down in the direction (left/right) and discard the numbers shifted out of the ends. See image below for an example.</div>
 <img src="{{site.baseurl}}/images/shift.png" width="640" length="480">
 
-<h2>How to Find Shifted Binary Numbers</h2>
-<div>The 0s and 1s coordinate with a power of two depending on its position. Starting from 1 on the right end, multiply by two each bit to the left. To find the binary number, add the powers of 2 that the 1s coordinate with. A left shift is used to multiply the binary number by 2, and a right shift is used to divide the binary number by 2.</div>
+<h2>How to Convert Binary Numbers Using Power of 2 Rule</h2>
+<div>Binary numbers are made up of 0s and 1s, each corresponding to a power of two based on its position. Starting from 1 on the right end, multiply by two each bit to the left. To find the binary number, add the powers of 2 that the 1s coordinate with. A left shift is used to multiply the binary number by 2, and a right shift is used to divide the binary number by 2.</div>
 <div>In the example below, the binary number has 8 bits meaning the highest power of 2 reaches 128, and the binary number is 16 + 4 + 1 = 21. When shifted to the left, the binary number becomes 42 since it is multiplied by 2. Check: 32 + 8 + 2 = 42. When shifted to the right, the binary number becomes 10 since it is divided by 2. Check: 8 + 2 = 10.</div>
 <img src="{{site.baseurl}}/images/binaryshift.png" width="640" length="480">
 
@@ -39,7 +39,7 @@ courses: { compsci: {week: 13} }
   <h2>Binary Shift Game</h2>
 </head>
 <body>
-  <div>In this game, you select which direction of shift you want to perform on a randomly generated binary number using the buttons below. Then, you will be asked to shift the binary number in the direction you chose by 1 position. Input your answer and submit to see if you got it right!</div>
+  <div>In this game, you select which direction of shift you want to perform on a randomly generated binary number using the buttons below. Then, you will be asked to shift the binary number in the direction you chose by 1 position. Input your answer and submit to see if you got it right! After submitting the first question, you will be asked to convert the binary number to decimal.</div>
   <div class="container">
     <div class="output" id="output"></div>
     <div class="button" id="left-shift" onclick="shift('left')">Shift Left</div>
@@ -77,21 +77,38 @@ function generateBinaryNumber(bits) {
 function shift(direction) {
   const output = document.getElementById('output');
   const binaryNumber = generateBinaryNumber(8); // here you can change the number of bits, right now there are 8
-  output.textContent = binaryNumber; // updates the output div with the shifted binary number
   const positions = 1; // may code random position in the future
-  const playerAnswer = prompt(`Enter the result of ${direction === 'left' ? 'left' : 'right'} shifting the binary number: ${binaryNumber} by ${positions} positions`);
-  const correctAnswer = direction === 'left'
+  const input = prompt(`Enter the result of ${direction === 'left' ? 'left' : 'right'} shifting the binary number: ${binaryNumber} by ${positions} positions`);
+  const answer = direction === 'left'
     ? binaryNumber.slice(positions) + '0'.repeat(positions)
     : '0'.repeat(positions) + binaryNumber.slice(0, -positions);
   // input feedback
-  if (playerAnswer === correctAnswer) {
+  if (input === answer) {
     alert('Correct! :)');
   } else {
-    alert(`Incorrect >:( The correct answer is ${correctAnswer}. Please review binary shift explanation above.`);
+    alert(`Incorrect >:( The correct answer is ${answer}. Please review binary shift explanation above.`);
+  }
+  powerOf2();
+}
+
+// binary to decimal using power of 2 rule
+function powerOf2(){
+  const binaryNumber = generateBinaryNumber(8);
+  const decimalValue = binaryToDecimal(binaryNumber);
+  const input = prompt(`Enter the decimal value of the binary number: ${binaryNumber}`);
+  if (parseInt(input, 10) === decimalValue) {
+    alert('Correct! :)');
+  } else {
+    alert(`Incorrect >:( The correct answer is ${decimalValue}. Please review binary to decimal conversion.`);
   }
 }
 
+function binaryToDecimal(binary) {
+  return parseInt(binary, 2);
+}
+
 </script>
+
 <script src="{{site.baseurl}}/assets/js/three.r134.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/vanta.clouds.min.js"></script>
 
