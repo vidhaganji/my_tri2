@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binary Operation Simulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #result {
+      margin-top: 20px;
+    }
+
+    #steps {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Binary Operation Simulation</h2>
+
+  <label for="binaryInput1">Enter Binary Number 1:</label>
+  <input type="text" id="binaryInput1" maxlength="8" pattern="[01]+" title="Please enter a valid binary number">
+
+  <label for="binaryInput2">Enter Binary Number 2:</label>
+  <input type="text" id="binaryInput2" maxlength="8" pattern="[01]+" title="Please enter a valid binary number">
+
+  <button onclick="performOperation('add')">Add Numbers</button>
+  <button onclick="performOperation('subtract')">Subtract Numbers</button>
+  <button onclick="performOperation('multiply')">Multiply Numbers</button>
+  <button onclick="performOperation('divide')">Divide Numbers</button>
+
+  <div id="result"></div>
+
+  <div id="steps">
+    <h3 id="operationTitle"></h3>
+    <ol id="operationSteps"></ol>
+  </div>
+
+  <script>
+    function performOperation(operation) {
+      // Get input values
+      const binaryInput1 = document.getElementById('binaryInput1').value;
+      const binaryInput2 = document.getElementById('binaryInput2').value;
+
+      // Initialize result and steps
+      let result;
+      let steps;
+
+      // Perform the selected operation
+      switch (operation) {
+        case 'add':
+          result = (parseInt(binaryInput1, 2) + parseInt(binaryInput2, 2)).toString(2);
+          steps = [
+            'Convert binary numbers to decimal: ',
+            `Converting binary numbers to decimal involves recognizing the positional value of each digit in the binary representation. In the binary system, each digit corresponds to a power of 2, with the rightmost digit representing 2^0, the next to 2^1, and so on. To convert a binary number to decimal, you start by writing down the binary digits and aligning them with their respective powers of 2. Then, you multiply each digit by its corresponding power of 2 and sum up the results. The rightmost digit's power is 2^0, the next is 2^1, and so forth. The sum of these products gives the decimal equivalent of the binary number. This process effectively translates the binary representation into its decimal counterpart by leveraging the base-2 positional system. For our numbers, the corresponding decimal numbers are: `,
+            `   ${binaryInput1} = ${parseInt(binaryInput1, 2)}`,
+            `   ${binaryInput2} = ${parseInt(binaryInput2, 2)}`,
+            'Add the decimal values:',
+            `   ${parseInt(binaryInput1, 2)} + ${parseInt(binaryInput2, 2)} = ${parseInt(binaryInput1, 2) + parseInt(binaryInput2, 2)}`,
+            'Convert the sum back to binary: ',
+            `   ${parseInt(binaryInput1, 2) + parseInt(binaryInput2, 2)} = ${result}`
+          ];
+          break;
+
+        case 'subtract':
+          result = (parseInt(binaryInput1, 2) - parseInt(binaryInput2, 2)).toString(2);
+          steps = [
+            'Convert binary numbers to decimal: ',
+            `Converting binary numbers to decimal involves recognizing the positional value of each digit in the binary representation. In the binary system, each digit corresponds to a power of 2, with the rightmost digit representing 2^0, the next to 2^1, and so on. To convert a binary number to decimal, you start by writing down the binary digits and aligning them with their respective powers of 2. Then, you multiply each digit by its corresponding power of 2 and sum up the results. The rightmost digit's power is 2^0, the next is 2^1, and so forth. The sum of these products gives the decimal equivalent of the binary number. This process effectively translates the binary representation into its decimal counterpart by leveraging the base-2 positional system. For our numbers, the corresponding decimal numbers are: `,
+            `   ${binaryInput1} = ${parseInt(binaryInput1, 2)}`,
+            `   ${binaryInput2} = ${parseInt(binaryInput2, 2)}`,
+            'Subtract the decimal values:',
+            `   ${parseInt(binaryInput1, 2)} - ${parseInt(binaryInput2, 2)} = ${parseInt(binaryInput1, 2) - parseInt(binaryInput2, 2)}`,
+            'Convert the difference back to binary: ',
+            `   ${parseInt(binaryInput1, 2) - parseInt(binaryInput2, 2)} = ${result}`
+          ];
+          break;
+
+        case 'multiply':
+          result = (parseInt(binaryInput1, 2) * parseInt(binaryInput2, 2)).toString(2);
+          steps = [
+            `We'll begin by converting the binary numbers to decimal.`,
+            `Converting binary numbers to decimal involves recognizing the positional value of each digit in the binary representation. In the binary system, each digit corresponds to a power of 2, with the rightmost digit representing 2^0, the next to 2^1, and so on. To convert a binary number to decimal, you start by writing down the binary digits and aligning them with their respective powers of 2. Then, you multiply each digit by its corresponding power of 2 and sum up the results. The rightmost digit's power is 2^0, the next is 2^1, and so forth. The sum of these products gives the decimal equivalent of the binary number. This process effectively translates the binary representation into its decimal counterpart by leveraging the base-2 positional system. For our numbers, the corresponding decimal numbers are: `,
+            `   ${binaryInput1} = ${parseInt(binaryInput1, 2)}`,
+            `   ${binaryInput2} = ${parseInt(binaryInput2, 2)}`,
+            'Multiply the decimal values:',
+            `   ${parseInt(binaryInput1, 2)} × ${parseInt(binaryInput2, 2)} = ${parseInt(binaryInput1, 2) * parseInt(binaryInput2, 2)}`,
+            'Convert the product back to binary: ',
+            `   ${parseInt(binaryInput1, 2) * parseInt(binaryInput2, 2)} = ${result}`
+          ];
+          break;
+
+        case 'divide':
+          result = (parseInt(binaryInput1, 2) / parseInt(binaryInput2, 2)).toString(2);
+          steps = [
+            'Convert binary numbers to decimal: ',
+            `Converting binary numbers to decimal involves recognizing the positional value of each digit in the binary representation. In the binary system, each digit corresponds to a power of 2, with the rightmost digit representing 2^0, the next to 2^1, and so on. To convert a binary number to decimal, you start by writing down the binary digits and aligning them with their respective powers of 2. Then, you multiply each digit by its corresponding power of 2 and sum up the results. The rightmost digit's power is 2^0, the next is 2^1, and so forth. The sum of these products gives the decimal equivalent of the binary number. This process effectively translates the binary representation into its decimal counterpart by leveraging the base-2 positional system. For our numbers, the corresponding decimal numbers are: `,
+            `   ${binaryInput1} = ${parseInt(binaryInput1, 2)}`,
+            `   ${binaryInput2} = ${parseInt(binaryInput2, 2)}`,
+            'Divide the decimal values:',
+            `   ${parseInt(binaryInput1, 2)} ÷ ${parseInt(binaryInput2, 2)} = ${parseInt(binaryInput1, 2) / parseInt(binaryInput2, 2)}`,
+            'Convert the quotient back to binary: ',
+            `   ${parseInt(binaryInput1, 2) / parseInt(binaryInput2, 2)} = ${result}`
+          ];
+          break;
+
+        default:
+          break;
+      }
+
+      // Display result
+      document.getElementById('result').innerHTML = `Result: ${binaryInput1} ${getOperationSymbol(operation)} ${binaryInput2} = ${result}`;
+
+      // Display steps
+      document.getElementById('operationTitle').innerHTML = `${getOperationName(operation)} Steps:`;
+      document.getElementById('operationSteps').innerHTML = steps.map(step => `<li>${step}</li>`).join('');
+      document.getElementById('steps').style.display = 'block';
+    }
+
+    function getOperationName(operation) {
+      switch (operation) {
+        case 'add':
+          return 'Binary Addition';
+        case 'subtract':
+          return 'Binary Subtraction';
+        case 'multiply':
+          return 'Binary Multiplication';
+        case 'divide':
+          return 'Binary Division';
+        default:
+          return '';
+      }
+    }
+
+    function getOperationSymbol(operation) {
+      switch (operation) {
+        case 'add':
+          return '+';
+        case 'subtract':
+          return '-';
+        case 'multiply':
+          return '×';
+        case 'divide':
+          return '÷';
+        default:
+          return '';
+      }
+    }
+  </script>
+
+</body>
+</html>
