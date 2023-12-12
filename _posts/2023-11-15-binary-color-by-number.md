@@ -28,7 +28,7 @@ courses: { compsci: {week: 13} }
 <h2> Instructions on How to Play </h2>
 <p>Enter the binary representation for each number to color the corresponding spot:</p>
 
-<h3> Color with me! </h3>
+<h3> Color with me! </h3>c
 
 <canvas id="coloringCanvas" width="300" height="300"></canvas>
 <br>
@@ -37,7 +37,7 @@ courses: { compsci: {week: 13} }
 <button onclick="colorByBinary()">Color</button>
 
 <script>
-    // Updated coloring data for a smiley face
+    
     const coloringData = [
         [1, 2, 3, 4, 5],
         [6, 7, 8, 9, 10],
@@ -49,7 +49,7 @@ courses: { compsci: {week: 13} }
     const canvas = document.getElementById('coloringCanvas');
     const ctx = canvas.getContext('2d');
 
-    // Draw initial coloring
+    // fills in the numbers on grid
     drawColoring(coloringData);
 
     function drawColoring(data) {
@@ -73,13 +73,13 @@ courses: { compsci: {week: 13} }
             }
         }
     }
-
+    // generates color based on binary representation 
     function getColorByBinary(number) {
         const binaryString = Number(number).toString(2);
-        const binaryColor = '#' + binaryString.padStart(6, '0'); // Use first 6 characters as hex color
+        const binaryColor = '#' + binaryString.padStart(6, '0'); 
         return binaryColor;
     }
-
+    //when user clicks color button, CBB function is triggered- if find number, canvas cell will be filled in
     function colorByBinary() {
         const binaryInput = document.getElementById('binaryInput').value;
         const binaryNumber = parseInt(binaryInput, 2);
@@ -102,3 +102,4 @@ courses: { compsci: {week: 13} }
 
 </body>
 </html>
+
