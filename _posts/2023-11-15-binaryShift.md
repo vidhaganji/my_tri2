@@ -91,7 +91,7 @@ function shift(direction) {
   }
   powerOf2();
 }
-// binary to decimal using power of 2 rule
+// binary value using power of 2 rule
 function powerOf2(){
   const binaryNumber = generateBinaryNumber(8);
   const decimalValue = binaryToDecimal(binaryNumber);

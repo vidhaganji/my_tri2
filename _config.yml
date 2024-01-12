@@ -1,9 +1,9 @@
-title: Nighthawk-Pages
+title: Tri 2 Group Repo
 description: "August 2023 to June 2024"
-owner_name: Tirth Thakkar
-github_username: Tirth-Thakkar
-github_repo: "Nighthawk-Pages"
-baseurl: "/Nighthawk-Pages"
+owner_name: Isabelle Park
+github_username: isabellehp
+github_repo: "tri2"
+baseurl: "/tri2"
 remote_theme: jekyll/minima
 minima:
   social_links:
