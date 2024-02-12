@@ -7,13 +7,8 @@
         .rectangle2 {
             width: 200px;
             height: 100px;
-            background-color: #3498db;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-        .rectangle2:hover {
-            transform: scale(1.05);
+            background: linear-gradient(to right, #4CAF50, #2196F3);
+            border-radius: 10px;
         }
         .button {
             color: #000000;
