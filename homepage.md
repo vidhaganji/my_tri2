@@ -7,7 +7,7 @@
         .rectangle2 {
             height: 56px;
             width: fill;
-            background-color: #e74c3c;
+            background-image:"clouds-twilight-times.jpg" ;
             border: 3px solid;
             border-image: linear-gradient(to right, #3498db, #1abc9c);
             border-image-slice: 1;
