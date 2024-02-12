@@ -7,8 +7,11 @@
         .rectangle2 {
             height: 56px;
             width: fill;
-            background: linear-gradient(to right, #4CAF50, #2196F3);
-            border-radius: 10px;
+            background-color: #e74c3c;
+            border: 3px solid;
+            border-image: linear-gradient(to right, #3498db, #1abc9c);
+            border-image-slice: 1;
+            border-radius: 8px;
         }
         .button {
             color: #000000;
@@ -91,5 +94,4 @@
         </div>
 
     <!-- Add other sections and content for your homepage here -->
-</body>
 </html>
