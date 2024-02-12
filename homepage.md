@@ -1,6 +1,9 @@
 <html>
 <head>
     <style>
+        body {
+            background-color:#e8d8cf;
+        }
         .rectangle2 {
             background-color: #f3eef4;
             height: 56px;
@@ -67,28 +70,10 @@
         }
     </style>
 </head>
-<script src="{{site.baseurl}}/assets/js/three.r134.min.js"></script>
-<script src="{{site.baseurl}}/assets/js/vanta.clouds.min.js"></script>
-
-<script>
-  
-
-VANTA.CLOUDS ({
-  el: "#animation",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  skyColor: 0xf9d1d1,
-  cloudColor: 0xbba2a8,
-  cloudShadowColor: 0x905167,
-  sunColor: 0x845d66,
-  sunGlareColor: 0x5e2610,
-  speed: 0.80
-})
 <body>
     <div id='rectangle2' class='rectangle2'>
         <div class="dropdown">
-            <button class='button signins' onclick="location.href='//https://isabellehp.github.io/tri2/';';">Sign In Options</button>
+            <button class='button signins' onclick="location.href='//https://isabellehp.github.io/tri2/';">Sign In Options</button>
             <div class="dropdown-content">
                 <a href="">Sign Up </a>
                 <a href="https://isabellehp.github.io/tri2/login/">Log In</a>
@@ -97,6 +82,19 @@ VANTA.CLOUDS ({
         </div>
         <div class="dropdown">
             <button class='button metaltherapy' onclick="location.href='//https://isabellehp.github.io/tri2/homepage';">Mental Therapy</button>
+        </div>
+        <div class="dropdown">
+            <button class='button more' onclick="location.href='//https://isabellehp.github.io/tri2/';">More Help</button>
+            <div class="dropdown-content">
+                <a href="https://isabellehp.github.io/tri2/daily_agenda">Daily Agenda </a>
+                <a href="">Moodtracker</a>
+                <!-- Add more artist links as needed -->
+            </div>
+        </div>
+    </div>
+
+        
+        
 
     <!-- Add other sections and content for your homepage here -->
 </body>
