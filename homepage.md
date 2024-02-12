@@ -5,12 +5,15 @@
             background-color:#e8d8cf;
         }
         .rectangle2 {
-            background-color: #f3eef4;
-            height: 56px;
-            width: fill;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            width: 200px;
+            height: 100px;
+            background-color: #3498db;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .rectangle2:hover {
+            transform: scale(1.05);
         }
         .button {
             color: #000000;
@@ -71,7 +74,7 @@
     </style>
 </head>
 <body>
-    <div id='bubble2' class='bubble2'>
+    <div id='rectangle2' class='rectangle2'>
         <div class="dropdown">
             <button class='button signins' onclick="location.href='//https://isabellehp.github.io/tri2/';">Sign In Options</button>
             <div class="dropdown-content">
@@ -92,9 +95,6 @@
             </div>
         </div>
     </div>
-
-        
-        
 
     <!-- Add other sections and content for your homepage here -->
 </body>
