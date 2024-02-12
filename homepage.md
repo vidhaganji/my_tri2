@@ -1,9 +1,6 @@
 <html>
 <head>
     <style>
-        body {
-            background-color: #E7D8ED;
-        }
         .rectangle2 {
             background-color: #f3eef4;
             height: 56px;
@@ -70,21 +67,6 @@
         }
     </style>
 </head>
-<body>
-    <div id='rectangle2' class='rectangle2'>
-        <div class="dropdown">
-            <button class='button signins' onclick="location.href='//https://isabellehp.github.io/tri2/';';">Sign In Options</button>
-            <div class="dropdown-content">
-                <a href="">Sign Up </a>
-                <a href="https://isabellehp.github.io/tri2/login/">Log In</a>
-                <!-- Add more artist links as needed -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class='button metaltherapy' onclick="location.href='//https://isabellehp.github.io/tri2/homepage';">ArtHub</button>
-
-    <!-- Add other sections and content for your homepage here -->
-
 <script src="{{site.baseurl}}/assets/js/three.r134.min.js"></script>
 <script src="{{site.baseurl}}/assets/js/vanta.clouds.min.js"></script>
 
@@ -103,6 +85,19 @@ VANTA.CLOUDS ({
   sunGlareColor: 0x5e2610,
   speed: 0.80
 })
+<body>
+    <div id='rectangle2' class='rectangle2'>
+        <div class="dropdown">
+            <button class='button signins' onclick="location.href='//https://isabellehp.github.io/tri2/';';">Sign In Options</button>
+            <div class="dropdown-content">
+                <a href="">Sign Up </a>
+                <a href="https://isabellehp.github.io/tri2/login/">Log In</a>
+                <!-- Add more artist links as needed -->
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class='button metaltherapy' onclick="location.href='//https://isabellehp.github.io/tri2/homepage';">Mental Therapy</button>
 
+    <!-- Add other sections and content for your homepage here -->
 </body>
 </html>
