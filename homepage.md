@@ -65,9 +65,12 @@
         margin: 20px 0;
         }
         .image-container img {
-            max-width: 600px;
-            max-height: 600px;
+            max-width: 300px;
+            max-height: 300px;
             margin: 10px;
+            border: 3px solid #d69092;
+            border-radius: 8px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -92,38 +95,14 @@
                 <!-- Add more artist links as needed -->
             </div>
         </div>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            body {
-                font-family: 'Arial', sans-serif;
-                margin: 20px;
-            }
-            h1 {
-                text-align: center;
-            }
-            .image-container {
-                display: flex;
-                margin-top: 20px;
-            }
-            img {
-                width: 100px;
-                border: 3px solid #d69092;
-                border-radius: 8px;
-                margin-right: 10px;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>More on Mental Health</h1>
-        <div class="image-container">
-            <img src="images/people.png" alt="Image 1 Description">
-            <img src="images/anxiety.png" alt="Image 2 Description">
-            <img src="images/therapy.png" alt="Image 3 Description">
-        </div>
-    </body>
-    </html>
+        <body>
+            <h1>More on Mental Health</h1>
+            <div class="image-container">
+                <img src="images/people.png" alt="Image 1 Description">
+                <img src="images/anxiety.png" alt="Image 2 Description">
+                <img src="images/therapy.png" alt="Image 3 Description">
+            </div>
+        </body>
+
 
     <!-- Add other sections and content for your homepage here -->
