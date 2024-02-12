@@ -65,8 +65,8 @@
         margin: 20px 0;
         }
         .image-container img {
-            max-width: 300px;
-            max-height: 300px;
+            max-width: 470px;
+            max-height: 470px;
             margin: 10px;
             border: 3px solid #d69092;
             border-radius: 8px;
