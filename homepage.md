@@ -5,8 +5,8 @@
             background-color:#e8d8cf;
         }
         .rectangle2 {
-            width: 200px;
-            height: 100px;
+            height: 56px;
+            width: fill;
             background: linear-gradient(to right, #4CAF50, #2196F3);
             border-radius: 10px;
         }
