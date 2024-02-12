@@ -92,6 +92,6 @@
                 <!-- Add more artist links as needed -->
             </div>
         </div>
-
     <!-- Add other sections and content for your homepage here -->
+</body>
 </html>
