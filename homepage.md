@@ -7,9 +7,9 @@
         .rectangle2 {
             height: 56px;
             width: fill;
-            background-image:"clouds-twilight-times.jpg" ;
+            background-color: #db948f ;
             border: 3px solid;
-            border-image: linear-gradient(to right, #3498db, #1abc9c);
+            border-image: linear-gradient(to right, #6b4f4d, #d69092);
             border-image-slice: 1;
             border-radius: 8px;
         }
