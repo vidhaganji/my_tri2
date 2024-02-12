@@ -109,7 +109,8 @@
                 margin-top: 20px;
             }
             img {
-                border: 2px solid #ddd;
+                width: 100px;
+                border: 3px solid #d69092;
                 border-radius: 8px;
                 margin-right: 10px;
             }
