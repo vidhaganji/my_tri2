@@ -2,7 +2,7 @@
 <head>
     <style>
         body {
-            background-color:#e8d8cf;
+            background-color:#fae5de;
         }
         .rectangle2 {
             height: 56px;
@@ -65,8 +65,8 @@
         margin: 20px 0;
         }
         .image-container img {
-            max-width: 470px;
-            max-height: 470px;
+            max-width: 400px;
+            max-height: 400px;
             margin: 10px;
             border: 3px solid #d69092;
             border-radius: 8px;
