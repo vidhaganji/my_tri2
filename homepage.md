@@ -79,7 +79,7 @@
         <div class="dropdown">
             <button class='button signins' onclick="location.href='//https://isabellehp.github.io/tri2/';">Sign In Options</button>
             <div class="dropdown-content">
-                <a href="">Sign Up </a>
+                <a href="https://isabellehp.github.io/tri2/Register/">Sign Up </a>
                 <a href="https://isabellehp.github.io/tri2/login/">Log In</a>
                 <!-- Add more artist links as needed -->
             </div>
@@ -90,8 +90,8 @@
         <div class="dropdown">
             <button class='button more' onclick="location.href='//https://isabellehp.github.io/tri2/';">More Help</button>
             <div class="dropdown-content">
-                <a href="https://isabellehp.github.io/tri2/2024/02/09/daily_agenda.">Daily Agenda </a>
-                <a href="">Moodtracker</a>
+                <a href="https://isabellehp.github.io/tri2/2024/02/09/daily_agenda">Daily Agenda </a>
+                <a href="https://isabellehp.github.io/tri2/2024/02/08/mood-tracker">Moodtracker</a>
                 <!-- Add more artist links as needed -->
             </div>
         </div>
