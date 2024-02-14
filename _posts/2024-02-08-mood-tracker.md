@@ -5,10 +5,6 @@
         padding: 8px;
     }
 
-    th {
-        background-color: #f2f2f2;
-    }
-
     td {
         cursor: pointer;
     }
