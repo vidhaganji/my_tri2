@@ -1,3 +1,8 @@
+---
+layout: base
+title: Mood Tracker
+permalink: /moodTracker/
+--- 
 <style>
     th, td {
         border: 1px solid #dddddd;

@@ -1,11 +1,8 @@
 ---
-toc: False
-layout: post
-hide: false
+layout: base
 title: Daily Agenda
-courses: {'compsci': {'week': 20}}
-type: hacks
----
+permalink: /dailyAgenda/
+--- 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
