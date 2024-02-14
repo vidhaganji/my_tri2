@@ -86,6 +86,8 @@
         </div>
         <div class="dropdown">
             <button class='button metaltherapy' onclick="location.href=;">Improving Your Mental Health</button>
+            <div class="dropdown-content">
+            <a href= >More Information</a>
         </div>
         <div class="dropdown">
             <button class='button more' onclick="location.href='//https://isabellehp.github.io/tri2/';">More Help</button>
