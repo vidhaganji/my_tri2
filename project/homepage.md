@@ -1,3 +1,8 @@
+---
+layout: base
+title: Homepage
+permalink: /homepage/
+--- 
 <html>
 <head>
     <style>
@@ -5,7 +10,7 @@
             background-color:#fae5de;
         }
         .rectangle2 {
-            height: 56px;
+            height: 80px;
             width: fill;
             background-color: #db948f ;
             border: 3px solid;
