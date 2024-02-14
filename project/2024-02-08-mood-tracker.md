@@ -4,6 +4,9 @@ title: Mood Tracker
 permalink: /moodTracker/
 --- 
 <style>
+    body {
+    background-color: #fae5de;
+    }
     th, td {
         border: 1px solid #dddddd;
         text-align: center;
