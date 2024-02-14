@@ -23,7 +23,7 @@ permalink: /moodTracker/
     }
 
     .mood {
-        background-color: #fff;
+        background-color: transparent;
         border: 2px solid #ccc;
         border-radius: 50%;
         font-size: 24px;

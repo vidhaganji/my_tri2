@@ -10,7 +10,6 @@ permalink: /dailyAgenda/
     <title>Vertical Weekly Time Period Checklist</title>
     <style>
         body {
-            background-color: #fae5de;
             font-family: 'Arial', sans-serif;
             margin: 20px;
         }
