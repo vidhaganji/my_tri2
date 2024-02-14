@@ -85,14 +85,14 @@
             </div>
         </div>
         <div class="dropdown">
-            <button class='button metaltherapy' onclick="location.href='//https://isabellehp.github.io/tri2/homepage';">Improving Your Mental Health</button>
+            <button class='button metaltherapy' onclick="location.href=;">Improving Your Mental Health</button>
         </div>
         <div class="dropdown">
             <button class='button more' onclick="location.href='//https://isabellehp.github.io/tri2/';">More Help</button>
             <div class="dropdown-content">
                 <a href="https://isabellehp.github.io/tri2/2024/02/09/daily_agenda">Daily Agenda </a>
                 <a href="https://isabellehp.github.io/tri2/2024/02/08/mood-tracker">Moodtracker</a>
-                <!-- Add more artist links as needed -->
+                <!-- Add more artist links as ne'//https://isabellehp.github.io/tri2/homepage'eded -->
             </div>
         </div>
         <body>
