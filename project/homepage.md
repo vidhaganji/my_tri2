@@ -3,7 +3,6 @@ layout: base
 title: Homepage
 permalink: /homepage/
 --- 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <style>
@@ -93,13 +92,11 @@ permalink: /homepage/
         </div>
         <div class="dropdown">
             <button class='button metaltherapy' onclick="location.href=//https://isabellehp.github.io/tri2/';">Improving Your Mental Health</button>
-            <div class="dropdown-content">
-                <a href="https://isabellehp.github.io/tri2/mental-health">More Information</a>
-            </div>
         </div>
         <div class="dropdown">
             <button class='button more' onclick="location.href='//https://isabellehp.github.io/tri2/';">More Help</button>
             <div class="dropdown-content">
+                <a href="https://isabellehp.github.io/tri2/mental-health">More Information</a>
                 <a href="https://isabellehp.github.io/tri2/2024/02/09/daily_agenda">Daily Agenda</a>
                 <a href="https://isabellehp.github.io/tri2/2024/02/08/mood-tracker">Moodtracker</a>
             </div>
