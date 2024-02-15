@@ -3,6 +3,11 @@ layout: base
 title: Mental Health information
 permalink: /info/
 --- 
+<style>
+body {
+    background-color: #FAE5DE;
+    }
+</style>
 
 ## Simple Bullet Points:
 - Exercise
