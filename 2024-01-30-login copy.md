@@ -1,14 +1,7 @@
 ---
-comments: True
-layout: notebook
-title: Login Verification
-description: 
-type: collab
-author: 
-toc: True
-courses: {'csp': {'week': 20}}
----
-
- 
+layout: base
+title: Verify
+permalink: /verify/
+--- 
 # Thank you !! Login Verified.
 
