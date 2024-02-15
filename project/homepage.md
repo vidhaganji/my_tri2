@@ -104,9 +104,9 @@ permalink: /homepage/
     </div>
     <h1>More on Mental Health</h1>
     <div class="image-container">
-        <img src="images/people.png" alt="Image 1 Description">
-        <img src="images/anxiety.png" alt="Image 2 Description">
-        <img src="images/therapy.png" alt="Image 3 Description">
+        <img src="/tri2/images/people.png" alt="Image 1 Description">
+        <img src="/tri2/images/anxiety.png" alt="Image 2 Description">
+        <img src="tri2/images/therapy.png" alt="Image 3 Description">
     </div>
 </body>
 </html>
