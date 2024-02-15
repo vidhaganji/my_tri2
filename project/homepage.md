@@ -106,7 +106,7 @@ permalink: /homepage/
     <div class="image-container">
         <img src="/tri2/images/people.png" alt="Image 1 Description">
         <img src="/tri2/images/anxiety.png" alt="Image 2 Description">
-        <img src="tri2/images/therapy.png" alt="Image 3 Description">
+        <img src="/tri2/images/therapy.png" alt="Image 3 Description">
     </div>
 </body>
 </html>
