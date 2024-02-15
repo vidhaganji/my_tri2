@@ -105,6 +105,3 @@
                 <img src="images/therapy.png" alt="Image 3 Description">
             </div>
         </body>
-
-
-    <!-- Add other sections and content for your homepage here -->
