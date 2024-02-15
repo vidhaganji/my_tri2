@@ -13,10 +13,10 @@ permalink: /journal/
 
    <style>
    body {
+   background-color: #fae5de;
    font-family: Arial, sans-serif;
    margin: 0;
    padding: 0;
-   background-color: #f4f4f4;
 }
 
 
@@ -76,11 +76,11 @@ button:hover {
    </style>
 </head>
 <body>
-   <div class="container">
+   <div class="container" id="animation">
        <h1>Daily Journal</h1>
        <div id="word-of-the-day"></div>
        <textarea id="journal-entry" placeholder="Write about today's word..."></textarea>
-       <button id="save-entry">Save Entry</button>
+       <button class="button" id="save-entry">Save Entry</button>
    </div>
 
 
@@ -125,6 +125,21 @@ document.getElementById('save-entry').addEventListener('click', saveEntry);
    </script>
 </body>
 </html>
-
+<script src="{{site.baseurl}}/assets/js/three.r134.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/vanta.clouds.min.js"></script>
+<script>
+    VANTA.CLOUDS ({
+        el: "#animation",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        skyColor: 0xf9d1d1,
+        cloudColor: 0xbba2a8,
+        cloudShadowColor: 0x905167,
+        sunColor: 0x845d66,
+        sunGlareColor: 0x5e2610,
+        speed: 0.80
+    });
+</script>
 
 

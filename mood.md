@@ -5,6 +5,51 @@ permalink: /mood/
 --- 
 
 <html lang="en">
+<style>
+    body {
+      background-color: #fae5de;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+      position: relative;
+    }
+    .whiteboard {
+      position: relative;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
+    .canvas-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    canvas {
+      cursor: crosshair;
+    }
+    .palette {
+      display: none;
+      margin-top: 20px;
+    }
+    button {
+      margin-right: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 <head>
     <meta charset="UTF-8">
     <title>Mood</title>

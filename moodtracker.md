@@ -3,7 +3,6 @@ layout: base
 title: tracker
 permalink: /tracker/
 --- 
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,11 +10,11 @@ permalink: /tracker/
   <title>Whiteboard and Prompt Generator</title>
   <style>
     body {
+      background-color: #fae5de;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
-
     .container {
       display: flex;
       flex-direction: column;
@@ -23,29 +22,24 @@ permalink: /tracker/
       margin-top: 50px;
       position: relative;
     }
-
     .whiteboard {
       position: relative;
       padding: 20px;
       border: 2px solid #ccc;
       border-radius: 10px;
     }
-
     .canvas-container {
       position: absolute;
       top: 0;
       left: 0;
     }
-
     canvas {
       cursor: crosshair;
     }
-
     .palette {
       display: none;
       margin-top: 20px;
     }
-
     button {
       margin-right: 10px;
       padding: 10px 20px;
@@ -55,7 +49,6 @@ permalink: /tracker/
       color: #fff;
       border-radius: 5px;
     }
-
     button:hover {
       background-color: #0056b3;
     }
@@ -65,7 +58,7 @@ permalink: /tracker/
   <div class="container">
     <div class="prompt-generator">
       <h2>Prompt Generator</h2>
-      <button id="generatePromptBtn">Generate Drawing Prompt</button>
+      <button class="button" id="generatePromptBtn">Generate Drawing Prompt</button>
       <p id="prompt"></p>
     </div>
     <div class="palette">
@@ -75,11 +68,11 @@ permalink: /tracker/
       <h2>Whiteboard</h2>
       <canvas id="whiteboardCanvas" width="600" height="400"></canvas>
     </div>
-    <button id="openPaletteBtn">Open Color Picker</button>
-    <button id="markerBtn">Marker</button>
-    <button id="eraserBtn">Eraser</button>
-    <button id="increaseEraserSizeBtn">Increase Eraser Size</button>
-    <button id="submitBtn">Submit</button>
+    <button class="button" id="openPaletteBtn">Open Color Picker</button>
+    <button class="button" id="markerBtn">Marker</button>
+    <button class="button" id="eraserBtn">Eraser</button>
+    <button class="button" id="increaseEraserSizeBtn">Increase Eraser Size</button>
+    <button class="button" id="submitBtn">Submit</button>
   </div>
   
   <canvas id="confetti"></canvas>
