@@ -1,3 +1,8 @@
+---
+layout: home
+title: Homepage
+permalink: /homepage/
+--- 
 <html>
 <head>
     <style>
