@@ -110,5 +110,3 @@ permalink: /homepage/
     </div>
 </body>
 </html>
-
-    <!-- Add other sections and content for your homepage here -->
