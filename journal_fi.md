@@ -2,15 +2,13 @@
 layout: base
 title: journal
 permalink: /journal/
---- 
+---
+
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Daily Journal</title>
-   <link rel="stylesheet">
-
-
    <style>
    body {
    background-color: #fae5de;
@@ -21,7 +19,7 @@ permalink: /journal/
 
 
 .container {
-   max-width: 600px;
+   max-width: 601px;
    margin: 50px auto;
    padding: 20px;
    background-color: #fff;
@@ -69,10 +67,6 @@ button {
 button:hover {
    background-color: #0056b3;
 }
-
-
-
-
    </style>
 </head>
 <body>
@@ -82,7 +76,6 @@ button:hover {
        <textarea id="journal-entry" placeholder="Write about today's word..."></textarea>
        <button class="button" id="save-entry">Save Entry</button>
    </div>
-
 
    <script>
    // Sample words to be used, you can replace this with a more comprehensive list
@@ -102,15 +95,40 @@ function displayWordOfTheDay() {
 
 
 function saveEntry() {
-   const entry = document.getElementById('journal-entry').value;
-   if (entry.trim() !== '') {
-       // You can add code here to save the journal entry to a database or localStorage
-       alert('Entry saved successfully!');
-       document.getElementById('journal-entry').value = ''; // Clear the textarea after saving
-   } else {
-       alert('Please write something before saving!');
-   }
+    const entry = document.getElementById('journal-entry').value.trim();
+
+    
+         if (entry !== '') {
+       // Save the entry to localStorage
+       let entries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+       entries.push({ timestamp: new Date().toISOString(), message: entry });
+       localStorage.setItem('journalEntries', JSON.stringify(entries));
+
+        // Alert the user and clear the textarea
+        alert('Entry saved successfully!');
+        document.getElementById('journal-entry').value = '';
+
+        // Create a redirect button
+        const redirectButton = document.createElement('button');
+        redirectButton.textContent = 'Reflect';
+        redirectButton.style.display = 'block';
+        redirectButton.style.width = '100%';
+        redirectButton.style.padding = '10px';
+        redirectButton.style.backgroundColor = '#007bff';
+        redirectButton.style.color = '#fff';
+        redirectButton.style.border = 'none';
+        redirectButton.style.borderRadius = '5px';
+        redirectButton.style.cursor = 'pointer';
+        redirectButton.addEventListener('click', function() {
+            window.location.href = '../reflect/'; // Redirect to the reflect page
+        });
+        document.querySelector('.container').appendChild(redirectButton);
+    } else {
+        alert('Please write something before saving!');
+    }
 }
+
+ 
 
 
 // Display a new word of the day when the page loads
@@ -125,21 +143,4 @@ document.getElementById('save-entry').addEventListener('click', saveEntry);
    </script>
 </body>
 </html>
-<script src="{{site.baseurl}}/assets/js/three.r134.min.js"></script>
-<script src="{{site.baseurl}}/assets/js/vanta.clouds.min.js"></script>
-<script>
-    VANTA.CLOUDS ({
-        el: "#animation",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        skyColor: 0xf9d1d1,
-        cloudColor: 0xbba2a8,
-        cloudShadowColor: 0x905167,
-        sunColor: 0x845d66,
-        sunGlareColor: 0x5e2610,
-        speed: 0.80
-    });
-</script>
-
 
