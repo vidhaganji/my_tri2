@@ -19,7 +19,7 @@ permalink: /journal/
 
 
 .container {
-   max-width: 600px;
+   max-width: 601px;
    margin: 50px auto;
    padding: 20px;
    background-color: #fff;
