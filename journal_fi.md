@@ -112,7 +112,7 @@ function saveEntry() {
        redirectButton.style.borderRadius = '5px';
        redirectButton.style.cursor = 'pointer';
        redirectButton.addEventListener('click', function() {
-           window.location.href = /reflect/; // Redirect to the reflect page
+           window.location.href = 'https://isabellehp.github.io/tri2/reflect/'; // Redirect to the reflect page
        });
        document.querySelector('.container').appendChild(redirectButton);
    } else {
