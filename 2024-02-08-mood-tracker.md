@@ -105,6 +105,8 @@ permalink: /moodTracker/
                 cell.innerHTML = selectedEmoji;
             }
         });
+
+        return selectedEmoji;
     }
 
 
