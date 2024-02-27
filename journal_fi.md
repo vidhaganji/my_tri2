@@ -1,9 +1,10 @@
+journal:
 ---
 layout: base
 title: journal
 permalink: /journal/
---- 
-<!DOCTYPE html>
+---
+
 <html lang="en">
 <head>
    <meta charset="UTF-8">
@@ -95,30 +96,40 @@ function displayWordOfTheDay() {
 
 
 function saveEntry() {
-   const entry = document.getElementById('journal-entry').value;
-   if (entry.trim() !== '') {
-       // You can add code here to save the journal entry to a database or localStorage
-       alert('Entry saved successfully!');
-       document.getElementById('journal-entry').value = ''; // Clear the textarea after saving
-       // Create a redirect button
-       const redirectButton = document.createElement('button');
-       redirectButton.textContent = 'Reflect';
-       redirectButton.style.display = 'block';
-       redirectButton.style.width = '100%';
-       redirectButton.style.padding = '10px';
-       redirectButton.style.backgroundColor = '#007bff';
-       redirectButton.style.color = '#fff';
-       redirectButton.style.border = 'none';
-       redirectButton.style.borderRadius = '5px';
-       redirectButton.style.cursor = 'pointer';
-       redirectButton.addEventListener('click', function() {
-           window.location.href = 'https://isabellehp.github.io/tri2/reflect/'; // Redirect to the reflect page
-       });
-       document.querySelector('.container').appendChild(redirectButton);
-   } else {
-       alert('Please write something before saving!');
-   }
+    const entry = document.getElementById('journal-entry').value.trim();
+
+    
+         if (entry !== '') {
+       // Save the entry to localStorage
+       let entries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+       entries.push({ timestamp: new Date().toISOString(), message: entry });
+       localStorage.setItem('journalEntries', JSON.stringify(entries));
+
+        // Alert the user and clear the textarea
+        alert('Entry saved successfully!');
+        document.getElementById('journal-entry').value = '';
+
+        // Create a redirect button
+        const redirectButton = document.createElement('button');
+        redirectButton.textContent = 'Reflect';
+        redirectButton.style.display = 'block';
+        redirectButton.style.width = '100%';
+        redirectButton.style.padding = '10px';
+        redirectButton.style.backgroundColor = '#007bff';
+        redirectButton.style.color = '#fff';
+        redirectButton.style.border = 'none';
+        redirectButton.style.borderRadius = '5px';
+        redirectButton.style.cursor = 'pointer';
+        redirectButton.addEventListener('click', function() {
+            window.location.href = '../reflect/'; // Redirect to the reflect page
+        });
+        document.querySelector('.container').appendChild(redirectButton);
+    } else {
+        alert('Please write something before saving!');
+    }
 }
+
+ 
 
 
 // Display a new word of the day when the page loads
@@ -133,3 +144,4 @@ document.getElementById('save-entry').addEventListener('click', saveEntry);
    </script>
 </body>
 </html>
+
