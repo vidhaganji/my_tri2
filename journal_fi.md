@@ -1,4 +1,3 @@
-journal:
 ---
 layout: base
 title: journal
