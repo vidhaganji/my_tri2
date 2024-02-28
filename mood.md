@@ -7,7 +7,6 @@ permalink: /mood/
 <html lang="en">
 <style>
     body {
-      background-color: #fae5de;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
