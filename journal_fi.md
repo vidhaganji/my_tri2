@@ -4,127 +4,246 @@ title: journal
 permalink: /journal/
 ---
 
+---
+layout: base
+title: Personal Journaling!!!! :)))))
+permalink: /journal
+---
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Journal</title>
+    <title>Personal Journaling :)</title>
+
     <style>
         body {
-            background-color: #fae5de;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top;
+            text-align: center;
         }
 
-        .container {
-            max-width: 601px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
+        #diary-title-container {
+            background-color: rgb(151, 118, 32);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top;
+            color: black; /* Black text */
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #diary {
+            width: 70%; /* Adjust width as needed */
+            margin: 0 auto; /* Center the textarea */
+            padding: 10px;
+            border: 1px solid #e8dada;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
             text-align: center;
         }
 
-        #word-of-the-day {
-            margin-bottom: 20px;
-            font-size: 24px;
+        /* Center text inside diary-container */
+        .diary-container {
             text-align: center;
-            color: #333;
         }
 
-        textarea {
+        /* Style the data container */
+        .data-container {
+            background-color: white;
+            border: 2px solid #ccc; /* Border style */
+            padding: 20px; /* Padding inside the container */
+            margin: 20px auto; /* Center the container */
+            max-width: 600px; /* Maximum width of the container */
+            text-align:center;
+        }
+
+        .recipe-buttons {
+            padding: 10px 20px; /* Padding around the button text */
+            background-color: #bdc8d4; /* Button background color */
+            color: rgb(0, 0, 0); /* Button text color */
+            border: none; /* Remove button border */
+            border-radius: 5px; /* Rounded corners */
+            width: 700px; 
+            margin: 0 auto;
+            cursor: pointer; /* Show pointer cursor on hover */
+            transition: background-color 0.3s ease; /* Smooth transition for background color */
+        }
+
+        /* Hover effect for the button */
+        .recipe-buttons:hover {
+            background-color: #0056b3; /* Darker background color on hover */
+        }
+
+        table {
             width: 100%;
-            height: 200px;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            resize: none;
+            border-collapse: collapse;
         }
 
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input {
+            margin: 6px;
+            background-color: #ffffff;
+            padding: 5px;
+            text-align: center;
+            border: 2px solid rgb(65, 101, 117);
+        }
+
+        h2 {
+            color: white; 
+        }
+        form {
+            margin: 15px;
         }
     </style>
 </head>
+<body class='sandiego-background'>
+    <!-- Home button linking to index.html -->
+    <a id="homeButton" href="index" style="position: fixed; top: 20px; left: 20px; font-size: 16px; text-decoration: none; color: #333; padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #f2f2f2;">Home</a>
 
-<body>
-    <div class="container" id="animation">
-        <h1>Daily Journal</h1>
-        <div id="word-of-the-day"></div>
-        <textarea id="journal-entry" placeholder="Write about today's word..."></textarea>
-        <button class="button" id="save-entry">Save Entry</button>
+    <div id='diary-title-container'>
+        <h1 class='title'>Personal Journals :)</h1>
+    </div>
+    <br>
+    <br>
+    <div class="recipe-container">
+        <h2 id="subtitle">Journal:</h2>
+        <form id="recipeForm" class="form-control">
+            <div>
+                <label for="journalname">Mood:</label>
+                <input type="text" id="journalname" name="journalname" required>
+            </div>  
+            <div>
+                <label for="prompt">What are you writing about?</label>
+                <input type="text" id="prompt" name="prompt" required>
+            </div>  
+            <div id="stepsContainer">
+                <label for="entry">Type here:</label>
+                <div id="stepInputs">
+                    <div>
+                        <input type="text" class="entry" name="entry" required>
+                    </div>
+                </div>
+                <button type="button" onclick="addStep()">Add entry</button>
+            </div>  
+            <div>
+                <label for="selfcare">Self-care</label>
+                <input type="text" id="selfcare" name="selfcare" required>
+            </div> 
+        </form>
+        <button class="recipe-buttons" onclick="recipe()">New Entry</button>
+        <br>
+        <br>
+        <button class="recipe-buttons" onclick="fetchJournal()">Load Personal Entries</button>
+        <p id="error"></p>
+        <div class="data-container">
+            <h3 id='subtitle'>Your Journals:</h2>
+            <div id="data"></div>
+        </div>
     </div>
 
-   <script>
-        // Sample words to be used, you can replace this with a more comprehensive list
-        const words = ['serendipity', 'ephemeral', 'quixotic', 'resilience', 'effervescent'];
-
-        function getRandomWord() {
-            return words[Math.floor(Math.random() * words.length)];
+    <script>
+        function addStep() {
+            const stepsContainer = document.getElementById("stepInputs");
+            const newStepInput = document.createElement("div");
+            newStepInput.innerHTML = `<input type="text" class="entry" name="entry" required>`;
+            stepsContainer.appendChild(newStepInput);
         }
 
-        function displayWordOfTheDay() {
-            const wordElement = document.getElementById('word-of-the-day');
-            const randomWord = getRandomWord();
-            wordElement.textContent = `Word of the Day: ${randomWord}`;
-        }
-
-        function saveEntry() {
-            const entry = document.getElementById('journal-entry').value.trim();
-            if (entry !== '') {
-                fetch('/journal-entry', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            entry: entry
-                        }),
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            // Alert the user and clear the textarea
-                            alert('Entry saved successfully!');
-                            document.getElementById('journal-entry').value = '';
-                            return response.json();
+        function recipe() {
+            let journalname = document.getElementById("journalname").value;
+            let prompt = document.getElementById("prompt").value;
+            let entry = Array.from(document.querySelectorAll('.entry')).map((input, index) => `${index + 1}. ${input.value}`).join('<br>');
+            let selfcare = document.getElementById("selfcare").value;
+            let data = {
+                "journalname": journalname,
+                "prompt": prompt,
+                "entry": entry,
+                "selfcare": selfcare,
+            };
+            fetch('http://127.0.0.1:8086/api/journals/write', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById("error").innerHTML = "Journal updated!";
+                    fetchJournal();
+                } else {
+                    return response.json().then(errorData => {
+                        if (errorData && errorData.message) {
+                            document.getElementById("error").innerHTML = errorData.message;
                         } else {
-                            throw new Error('Failed to save entry');
+                            document.getElementById("error").innerHTML = "Error submitting journal";
                         }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Failed to save entry');
                     });
-            } else {
-                alert('Please write something before saving!');
-            }
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("error").innerHTML = "Error submitting journal";
+            });
         }
 
-        // Display a new word of the day when the page loads
-        window.onload = displayWordOfTheDay;
-
-        // Event listener for the save button
-        document.getElementById('save-entry').addEventListener('click', saveEntry);
-   </script>
+        function fetchJournal() {
+            let options = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+            };
+            fetch("http://127.0.0.1:8086/api/journals/read", options)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Network response was not ok.');
+                    }
+                 })
+                .then(response => {
+                    let table = document.createElement("table");
+                    let headerRow = table.insertRow();
+                    let headers = ["Journal Name", "Prompt", "Entry", "Self Care"];
+                    headers.forEach(headerText => {
+                        let header = document.createElement("th");
+                        let textNode = document.createTextNode(headerText);
+                        header.appendChild(textNode);
+                        headerRow.appendChild(header);
+                    });
+                    let dataContainer = document.getElementById("data");
+                    dataContainer.innerHTML = "";
+                    response.forEach(item => {
+                        let row = table.insertRow();
+                        let rowData = [item.journalname, item.prompt, item.entry.split('<br>').map(step => `<li>${step}</li>`).join(''), item.selfcare];
+                        rowData.forEach(cellData => {
+                            let cell = row.insertCell();
+                            let textNode = document.createElement('ul');
+                            textNode.innerHTML = cellData;
+                            cell.appendChild(textNode);
+                        });
+                    });
+                    dataContainer.appendChild(table);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    document.getElementById("error").innerHTML = "Error fetching journal";
+                });
+        }
+    </script>
 </body>
-
 </html>
