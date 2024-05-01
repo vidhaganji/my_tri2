@@ -1,0 +1,121 @@
+<script>
+    // Initialize wave effect
+    function initWaveEffect() {
+        VANTA.WAVES({
+            el: "#vanta-background",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0xc5749e,
+            shininess: 88.00,
+            waveHeight: 40.00,
+            waveSpeed: 2.00,
+            zoom: 0.65
+        });
+    }
+
+    // list that contains all prompts
+        function setDailyPrompt() {
+            const prompts = [
+                "What made you smile today?",
+                "What was the highlight of your day?",
+                "What are you grateful for today?",
+                "What did you learn today?",
+                "What is something you accomplished today?",
+                "What's your favorite memory from this week?",
+                "Describe a recent act of kindness you experienced or witnessed.",
+                "What is a challenge you faced today, and how did you overcome it?",
+                "Write about something that inspires you.",
+                "What is something new you learned recently?",
+                "Describe a moment when you felt proud of yourself.",
+                "What is something you're looking forward to?",
+                "What's something that made you laugh recently?",
+                "Write about a small victory you had today.",
+                "Describe something you did today that made you feel good about yourself."
+            ];
+            const randomIndex = Math.floor(Math.random() * prompts.length);
+            const prompt = prompts[randomIndex];
+            document.getElementById("daily-prompt").textContent = prompt;
+        }
+    // function which generates timestamp
+    function getCurrentTimestamp() {
+        const date = new Date();
+        return date.toLocaleString(); // Get date and time in local format
+    }
+
+    // function to save the entry to local storage
+    function saveEntryToLocalStorage(entryText) {
+        if (entryText) {
+            const entry = {
+                timestamp: getCurrentTimestamp(),
+                entryText: entryText
+            };
+
+            let entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+            entries.push(entry);
+            localStorage.setItem("journalEntries", JSON.stringify(entries));
+
+            // Reset form
+            document.getElementById("entry").value = "";
+        } else {
+            // if user submits an empty entry, the user will be alerted by the following error message
+            alert("Please enter your journal entry.");
+        }
+    }
+
+    // function to display journal entries
+    // procedure name is showEntries
+    // singular parameter is entries which ids the journal entry typed by user
+    function showEntries(entries) {
+        const entriesContainer = document.getElementById("entries-container");
+        entriesContainer.innerHTML = ""; // clears previous entries
+        // conditional statement to ensure entries have fixed length
+        // iteration to verify length of journal entry
+        if (entries.length > 0) {
+            entries.forEach(entry => {
+                const entryDiv = document.createElement("div");
+                entryDiv.classList.add("entry");
+
+                const entryText = document.createElement("p");
+                entryText.textContent = entry.entryText;
+
+                const entryDate = document.createElement("p");
+                entryDate.textContent = "Date: " + entry.timestamp; // displays entry date
+
+                entryDiv.appendChild(entryDate); // Append date
+                entryDiv.appendChild(entryText);
+                entriesContainer.appendChild(entryDiv);
+            });
+
+            entriesContainer.style.display = "block";
+        } else {
+            alert("No entries found!");
+        }
+    }
+
+    // Initialize wave effect
+    initWaveEffect();
+
+    // initia daily prompt
+    setDailyPrompt();
+
+    // event listener for change prompt button
+    document.getElementById("change-prompt-btn").addEventListener("click", setDailyPrompt);
+
+    // event listener for show entries button
+    document.getElementById("show-entries-btn").addEventListener("click", function() {
+        const entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+        // call to student-developed procedure, when button pressed, entries are displayed
+        showEntries(entries);
+    });
+
+    // event listener for submit button
+    document.getElementById("submit-btn").addEventListener("click", function() {
+        const entryText = document.getElementById("entry").value.trim();
+        saveEntryToLocalStorage(entryText);
+    });
+</script>

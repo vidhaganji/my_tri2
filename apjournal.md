@@ -3,33 +3,25 @@ layout: base
 title: ap
 permalink: /ap/
 ---
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Journal</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.23/dist/vanta.waves.min.js"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Internal CSS -->
     <style>
         /* Global styles */
         body {
             font-family: 'Playfair Display', serif;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: #fff;
             overflow-y: scroll; /* Allow vertical scrolling */
-        }
-
-        #your-element-selector {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            background-color: #f5f5f5; /* Light grey background */
         }
 
         /* Journal container styles */
@@ -39,7 +31,7 @@ permalink: /ap/
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #000; /* Solid black */
+            background-color: #d3d3d3; /* Pale grey, silverish */
             border-radius: 10px;
             border: 2px solid #aaa; /* Silver border */
             text-align: center; /* Center align journal content */
@@ -106,16 +98,6 @@ permalink: /ap/
             color: #ccc;
         }
 
-        #rating {
-            margin-bottom: 20px;
-        }
-
-        .rating-label {
-            font-size: 2em; /* Larger emoji size */
-            margin: 0 5px; /* Space between emojis */
-            cursor: pointer;
-        }
-
         #show-entries-btn {
             padding: 20px 40px; /* Larger padding */
             font-size: 1.5em; /* Larger font size */
@@ -159,62 +141,124 @@ permalink: /ap/
             color: #ccc;
         }
 
-        .entry .rating {
-            font-size: 1.2em;
+        #vanta-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
-    <div id="your-element-selector"></div>
-    <div id="journal-container">
-        <h1>DAILY JOURNAL</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://www.vantajs.com/dist/vanta.waves.min.js"></script>
+</head>
+<body>
+    <div id="vanta-background"></div>
+    <h1>DAILY JOURNAL</h1>
+        
+        <!-- Prompt Section -->
         <div id="prompt-container">
             <span id="prompt">Today's Prompt: <span id="daily-prompt"></span></span>
             <button class="btn" id="change-prompt-btn">Change Prompt</button>
         </div>
+        
+        <!-- Journal Entry Section -->
         <textarea id="entry" placeholder="Enter your journal entry here"></textarea>
-        <div id="rating">
-            <label class="rating-label" id="rating1" for="rating-1">😡</label>
-            <input type="radio" id="rating-1" name="rating" value="1">
-            <label class="rating-label" id="rating2" for="rating-2">😞</label>
-            <input type="radio" id="rating-2" name="rating" value="2">
-            <label class="rating-label" id="rating3" for="rating-3">😐</label>
-            <input type="radio" id="rating-3" name="rating" value="3">
-            <label class="rating-label" id="rating4" for="rating-4">🙂</label>
-            <input type="radio" id="rating-4" name="rating" value="4">
-            <label class="rating-label" id="rating5" for="rating-5">😄</label>
-            <input type="radio" id="rating-5" name="rating" value="5">
-        </div>
+        
+        <!-- Submit Button -->
         <button class="btn" id="submit-btn">Submit</button>
+        
+        <!-- Show Entries Button -->
         <button class="btn" id="show-entries-btn">Show Entries</button>
+        
+        <!-- Entries Container -->
         <div id="entries-container"></div>
-    </div>
-
     <script>
-        VANTA.WAVES({
-            el: "#your-element-selector",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0xc5749e,
-            shininess: 88.00,
-            waveHeight: 40.00,
-            waveSpeed: 2.00,
-            zoom: 0.65
-        });
+        // Initialize wave effect
+        function initWaveEffect() {
+            VANTA.WAVES({
+                el: "#vanta-background",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0xc5749e,
+                shininess: 88.00,
+                waveHeight: 40.00,
+                waveSpeed: 2.00,
+                zoom: 0.65
+            });
+        }
 
-        // Function to generate timestamp
+        // function which generates timestamp
         function getCurrentTimestamp() {
             const date = new Date();
             return date.toLocaleString(); // Get date and time in local format
         }
 
-        // Function to get a random prompt
-        function getRandomPrompt() {
+        // Function to save the entry to local storage
+        function saveEntryToLocalStorage(entryText) {
+            if (entryText) {
+                const entry = {
+                    timestamp: getCurrentTimestamp(),
+                    entryText: entryText
+                };
+
+                let entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+                entries.push(entry);
+                localStorage.setItem("journalEntries", JSON.stringify(entries));
+
+                // Reset form
+                document.getElementById("entry").value = "";
+
+                return true;
+            } else {
+                alert("Please enter your journal entry.");
+                return false;
+            }
+        }
+
+        // Function to display journal entries
+        function showEntries() {
+            const entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+            const entriesContainer = document.getElementById("entries-container");
+            entriesContainer.innerHTML = ""; // Clear previous entries
+
+            if (entries.length > 0) {
+                entries.forEach(entry => {
+                    const entryDiv = document.createElement("div");
+                    entryDiv.classList.add("entry");
+
+                    const entryText = document.createElement("p");
+                    entryText.textContent = entry.entryText;
+
+                    const entryDate = document.createElement("p");
+                    entryDate.textContent = "Date: " + entry.timestamp; // Display entry date
+
+                    entryDiv.appendChild(entryDate); // Append date
+                    entryDiv.appendChild(entryText);
+                    entriesContainer.appendChild(entryDiv);
+                });
+
+                entriesContainer.style.display = "block";
+            } else {
+                alert("No entries found!");
+            }
+        }
+
+        // Function to set the daily prompt
+        function setDailyPrompt() {
             const prompts = [
                 "What made you smile today?",
                 "What was the highlight of your day?",
@@ -232,87 +276,34 @@ permalink: /ap/
                 "Write about a small victory you had today.",
                 "Describe something you did today that made you feel good about yourself."
             ];
-            return prompts[Math.floor(Math.random() * prompts.length)];
+            const randomIndex = Math.floor(Math.random() * prompts.length);
+            const prompt = prompts[randomIndex];
+            document.getElementById("daily-prompt").textContent = prompt;
         }
 
-        // Function to set the daily prompt
-        function setDailyPrompt() {
-            document.getElementById("daily-prompt").textContent = getRandomPrompt();
-        }
+        // Initialize wave effect
+        initWaveEffect();
 
         // Initialize daily prompt
         setDailyPrompt();
 
         // Event listener for change prompt button
-        document.getElementById("change-prompt-btn").addEventListener("click", function() {
-            setDailyPrompt();
-        });
+        document.getElementById("change-prompt-btn").addEventListener("click", setDailyPrompt);
+
+        // Event listener for show entries button
+        document.getElementById("show-entries-btn").addEventListener("click", showEntries);
 
         // Event listener for submit button
         document.getElementById("submit-btn").addEventListener("click", function() {
             const entryText = document.getElementById("entry").value.trim();
-            const rating = document.querySelector('input[name="rating"]:checked');
-
-            // Save the entry and timestamp to local storage
-            if (entryText && rating) {
-                const entry = {
-                    timestamp: getCurrentTimestamp(),
-                    entryText: entryText,
-                    rating: rating.value
-                };
-
-                let entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
-                entries.push(entry);
-                localStorage.setItem("journalEntries", JSON.stringify(entries));
-
-                // Reset form
-                document.getElementById("entry").value = "";
-                document.querySelector('input[name="rating"]:checked').checked = false;
-            } else {
-                alert("Please enter your journal entry and rate your day.");
-            }
-        });
-
-        // Event listener for show entries button
-        document.getElementById("show-entries-btn").addEventListener("click", function() {
-            const entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
-            const entriesContainer = document.getElementById("entries-container");
-            entriesContainer.innerHTML = ""; // Clear previous entries
-
-            if (entries.length > 0) {
-                entries.forEach(entry => {
-                    const entryDiv = document.createElement("div");
-                    entryDiv.classList.add("entry");
-
-                    const entryText = document.createElement("p");
-                    entryText.textContent = entry.entryText;
-
-                    const entryDate = document.createElement("p");
-                    entryDate.textContent = "Date: " + entry.timestamp; // Display entry date
-
-                    const rating = document.createElement("p");
-                    rating.classList.add("rating");
-                    rating.textContent = "Rating: ";
-                    for (let i = 0; i < entry.rating; i++) {
-                        rating.textContent += "😄"; // Display selected emoji for rating
-                    }
-
-                    entryDiv.appendChild(entryDate); // Append date
-                    entryDiv.appendChild(entryText);
-                    entryDiv.appendChild(rating);
-                    entriesContainer.appendChild(entryDiv);
-                });
-
-                entriesContainer.style.display = "block";
-            } else {
-                alert("No entries found!");
+            if (saveEntryToLocalStorage(entryText)) {
+                showEntries();
             }
         });
     </script>
 </body>
 </html>
 
-
-
-
+</body>
+</html>
 
