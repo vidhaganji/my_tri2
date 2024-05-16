@@ -250,6 +250,9 @@ permalink: /ap/
                     entryDiv.appendChild(entryText);
                     entriesContainer.appendChild(entryDiv);
                 });
+                 for (entries.length > 0) {
+            alert ("Your entries are valid!");
+        };
 
                 entriesContainer.style.display = "block";
             } else {
@@ -303,6 +306,7 @@ permalink: /ap/
     </script>
 </body>
 </html>
+
 
 </body>
 </html>

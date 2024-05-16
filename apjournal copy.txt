@@ -1,6 +1,5 @@
 <script>
     // Initialize wave effect
-    // This code was made freely available by vanta.js.
     function initWaveEffect() {
         VANTA.WAVES({
             el: "#vanta-background",
@@ -55,7 +54,7 @@
                 timestamp: getCurrentTimestamp(),
                 entryText: entryText
             };
-    // iteration, goes through each entry and adds them to array
+
             let entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
             entries.push(entry);
             localStorage.setItem("journalEntries", JSON.stringify(entries));
@@ -66,10 +65,6 @@
             // if user submits an empty entry, the user will be alerted by the following error message
             alert("Please enter your journal entry.");
         }
-        // iteration to verify whether entry is long enough
-        for (entries.length > 0) {
-            alert ("Your entries are valid!");
-        };
     }
 
     // function to display journal entries
@@ -105,7 +100,7 @@
     // Initialize wave effect
     initWaveEffect();
 
-    // initiate daily prompt
+    // initia daily prompt
     setDailyPrompt();
 
     // event listener for change prompt button
@@ -125,4 +120,11 @@
     });
 </script>
 
+#########################
 
+I would like to thank Mr. Lopez, my AP CSP teacher, as well as my group members who I collaborated with to create a project regarding mood. 
+
+Group Frontend: https://github.com/isabellehp/tri2
+Group Backend: 
+
+Nighthawk Pages (base for webpage): https://github.com/nighthawkcoders/Nighthawk-Pages

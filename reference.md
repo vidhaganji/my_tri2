@@ -1,6 +1,4 @@
 <script>
-    // Initialize wave effect
-    // This code was made freely available by vanta.js.
     function initWaveEffect() {
         VANTA.WAVES({
             el: "#vanta-background",
@@ -18,8 +16,6 @@
             zoom: 0.65
         });
     }
-
-    // list that contains all prompts
         function setDailyPrompt() {
             const prompts = [
                 "What made you smile today?",
@@ -42,44 +38,32 @@
             const prompt = prompts[randomIndex];
             document.getElementById("daily-prompt").textContent = prompt;
         }
-    // function which generates timestamp
     function getCurrentTimestamp() {
         const date = new Date();
-        return date.toLocaleString(); // Get date and time in local format
+        return date.toLocaleString(); 
     }
 
-    // function to save the entry to local storage
+    
     function saveEntryToLocalStorage(entryText) {
         if (entryText) {
             const entry = {
                 timestamp: getCurrentTimestamp(),
                 entryText: entryText
             };
-    // iteration, goes through each entry and adds them to array
+
             let entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
             entries.push(entry);
             localStorage.setItem("journalEntries", JSON.stringify(entries));
 
-            // Reset form
             document.getElementById("entry").value = "";
         } else {
-            // if user submits an empty entry, the user will be alerted by the following error message
             alert("Please enter your journal entry.");
         }
-        // iteration to verify whether entry is long enough
-        for (entries.length > 0) {
-            alert ("Your entries are valid!");
-        };
     }
 
-    // function to display journal entries
-    // procedure name is showEntries
-    // singular parameter is entries which ids the journal entry typed by user
     function showEntries(entries) {
         const entriesContainer = document.getElementById("entries-container");
-        entriesContainer.innerHTML = ""; // clears previous entries
-        // conditional statement to ensure entries have fixed length
-        // iteration to verify length of journal entry
+        entriesContainer.innerHTML = ""; 
         if (entries.length > 0) {
             entries.forEach(entry => {
                 const entryDiv = document.createElement("div");
@@ -89,9 +73,9 @@
                 entryText.textContent = entry.entryText;
 
                 const entryDate = document.createElement("p");
-                entryDate.textContent = "Date: " + entry.timestamp; // displays entry date
+                entryDate.textContent = "Date: " + entry.timestamp; 
 
-                entryDiv.appendChild(entryDate); // Append date
+                entryDiv.appendChild(entryDate); 
                 entryDiv.appendChild(entryText);
                 entriesContainer.appendChild(entryDiv);
             });
@@ -102,27 +86,23 @@
         }
     }
 
-    // Initialize wave effect
     initWaveEffect();
 
-    // initiate daily prompt
     setDailyPrompt();
 
-    // event listener for change prompt button
     document.getElementById("change-prompt-btn").addEventListener("click", setDailyPrompt);
 
-    // event listener for show entries button
     document.getElementById("show-entries-btn").addEventListener("click", function() {
         const entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
-        // call to student-developed procedure, when button pressed, entries are displayed
         showEntries(entries);
     });
 
-    // event listener for submit button
     document.getElementById("submit-btn").addEventListener("click", function() {
         const entryText = document.getElementById("entry").value.trim();
         saveEntryToLocalStorage(entryText);
     });
 </script>
 
+I would like to thank Mr. Lopez, my AP CSP teacher, as well as my group members who were there to support me and for me to augment my knoweldge and code with any further concepts.
 
+Nighthawk Pages (base for webpage): https://github.com/nighthawkcoders/Nighthawk-Pages
